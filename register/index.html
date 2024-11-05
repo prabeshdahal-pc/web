@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Title, icon, description and keywords -->
+  <title>Register | Nepal National Tech Summit 2024</title>
+  <link rel="shortcut icon" href="../res/images/logos/dark-large.png">
+  <meta name="description" content="Contact us at the Nepal National Tech Summit 2024. Join us for an innovative experience.">
+  <meta name="keywords" content="Tech Summit, Nepal, event, technology, innovation">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../res/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../res/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../res/css/main.css">
+  <link rel="stylesheet" href="../res/css/style.css">
+  <link rel="stylesheet" href="../res/css/color_red.css">
+
+  <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 8]>
+  <script src="../res/js/modernizr.min.js"></script>
+  <![endif]-->
+</head>
+
+<body id="page-top">
+  <!-- Navigation Start -->
+  <nav id="navigation" class="navbar navbar-fixed-top navbar-dark">
+    <div class="container">
+      <div class="row">
+        <div class="navbar-header col-lg-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand font-family-alt letter-spacing-1 text-extra-large text-uppercase" href="../index.html">
+            <img class="logo-navbar-dark" src="../res/images/logos/light.png" alt="Nepal Tech Summit Logo" style="max-height: 100px; object-fit: contain; padding-bottom: 10px;" />
+            <img class="logo-navbar-white" src="../res/images/logos/dark.png" alt="Nepal Tech Summit Logo" style="max-height: 50px; object-fit: contain;" />
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse col-lg-9 pull-right">
+          <ul class="nav navbar-nav font-family-alt letter-spacing-1 text-uppercase font-weight-700">
+            <li><a href="../index.html" class="page-scroll">Home</a></li>
+            <li class="bg-base-color">
+              <a href="../register/index.html" class="line-height-unset">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- //Navigation End -->
+
+  <h2 class="font-family-alt font-weight-900 letter-spacing-2 text-white xs-title-extra-large sm-title-extra-large-3 title-extra-large-5">
+    <span class="text-base-color">Nepal National</span> Tech Summit 2024
+  </h2>
+  <!-- Section - Contact Start -->
+  <section id="contact" class="bg-white-2">
+    <div class="container">
+      <div class="row no-padding-rl">
+        <div class="col-md-12">
+          <h2 class="font-family-alt font-weight-900 letter-spacing-2 text-white xs-title-extra-large sm-title-extra-large-3 title-extra-large-5">
+            <span class="text-base-color">Nepal National Tech Summit 2024 Form :</span>
+          </h2>
+          <form name="participation" method="post" id="form-participation">
+            <div class="row margin-4 no-margin-rl">
+              <input type="text" placeholder="Your Name" name="name" class="required" required>
+              <input type="email" placeholder="Your Email" name="email" class="required email" required>
+              <input type="text" placeholder="Phone Number" name="phone" class="required" required>
+              <input type="text" placeholder="Address" name="address" class="required" required>
+              <input type="text" placeholder="Country" name="country" class="required" required>
+              <input type="text" placeholder="Qualification" name="qualification" class="required" required>
+              <input type="text" placeholder="Company Name" name="company" class="required" required>
+              <input type="text" placeholder="Post" name="post" class="required" required>
+              <textarea placeholder="Why do you want to participate?" name="reason" class="required" required></textarea>
+            </div>
+            <div class="row margin-4 no-margin-rl">
+              <span class="display-block font-family-alt letter-spacing-1 text-gray-dark-2 text-small text-uppercase">
+                * Please enter all fields correctly
+              </span>
+            </div>
+            <div class="row margin-4 no-margin-rl">
+              <button id="btn-form-participation" type="submit" class="btn btn-base-color btn-medium">
+                Send Participation Request
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //Section - Contact End -->
+
+
+<style>
+  /* Animation for button */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Active state for button after click */
+  #register-button.clicked {
+    border: 2px solid #ffcc00; /* Border color after click */
+    animation: none; /* Stop pulse animation on click */
+    transition: border 0.3s ease; /* Smooth transition for border */
+  }
+</style>
+
+<script>
+  // JavaScript to handle the click event and add/remove class
+  document.getElementById('register-button').addEventListener('click', function() {
+    this.classList.toggle('clicked'); // Toggle clicked class on click
+    setTimeout(() => {
+      this.classList.remove('clicked'); // Remove the class after 1 second
+    }, 1000); // Adjust the timeout as needed
+  });
+</script>
+
+  <!-- Scroll to top -->
+  <a href="#page-top" class="page-scroll scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- jQuery -->
+  <script src="../res/js/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="../res/js/bootstrap.min.js"></script>
+
+  <!-- Firebase -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBfh6tYt_xWYW_RIPakgV03kHCnZc02EFM",
+      authDomain: "website-d2d76.firebaseapp.com",
+      projectId: "website-d2d76",
+      storageBucket: "website-d2d76.firebasestorage.app",
+      messagingSenderId: "969185321669",
+      appId: "1:969185321669:web:851934c7bb66de3aee46ac",
+      measurementId: "G-N273L869LN"
+    };
+
+    // Initialize Firebase and Firestore
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app); // Firestore reference
+
+    // Form submission
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("form-participation");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        // Capture form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          // Save form data to Firestore
+          const docRef = await addDoc(collection(db, "participants"), data);
+          alert("Participation request submitted successfully!");
+          form.reset(); // Reset the form
+        } catch (error) {
+          console.error("Error submitting participation request: ", error);
+          alert("There was an error submitting your request. Please try again.");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

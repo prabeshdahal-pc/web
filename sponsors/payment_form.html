@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title, icon, description and keywords -->
+  <title>sponsorship-form | Nepal National Tech Summit 2024</title>
+  <link rel="shortcut icon" href="../res/images/logos/dark-large.png">
+  <meta name="description" content="Contact us at the Nepal National Tech Summit 2024. Join us for an innovative experience.">
+  <meta name="keywords" content="Tech Summit, Nepal, event, technology, innovation">  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #10132e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      background-color: #18234a;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      margin-top: 20px;
+      text-align: center;
+      border: 1px solid #00e7ff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h1 {
+      color: #00e7ff;
+      margin-bottom: 20px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      background-color: #2a2d4d;
+      color: #fff;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 231, 255, 0.7);
+      transform: translateY(-2px);
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00e7ff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .button:hover {
+      background-color: #00b3c3;
+      transform: translateY(-2px);
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Sponsorship Application</h1>
+    <form id="sponsorship-form">
+      <input type="text" placeholder="Name" name="name" required>
+      <input type="text" placeholder="Company Name" name="companyName" required>
+      <input type="text" placeholder="Position" name="position" required>
+      <input type="text" placeholder="Country Code (e.g., +1)" name="countryCode" required>
+      <input type="text" placeholder="Phone Number" name="phone" required pattern="\d*">
+      <input type="text" placeholder="Zip Code" name="zip" required pattern="\d{5}|\d{6}">
+      <input type="email" placeholder="Email" name="email" required>
+      <select name="package" required>
+        <option value="" disabled selected>Select Sponsorship Package</option>
+        <option value="Title Sponsor">Title Sponsor - USD $2,228,226.30</option>
+        <option value="Platinum Sponsor">Platinum Sponsor - USD $1,114,113.15</option>
+        <option value="Gold Sponsor">Gold Sponsor - USD $594,193.68</option>
+        <option value="Silver Sponsor">Silver Sponsor - USD $371,371.05</option>
+        <option value="Startup Showcase Sponsor">Startup Showcase Sponsor - USD $222,822.63</option>
+      </select>
+      <textarea placeholder="What do you want to achieve?" name="objective" rows="4" required></textarea>
+      <textarea placeholder="Additional Notes/Comments" name="comments" rows="4"></textarea>
+      <button type="submit" class="button">Submit Application</button>
+      <div class="error" id="error-message" style="display: none;"></div>
+    </form>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBfh6tYt_xWYW_RIPakgV03kHCnZc02EFM",
+      authDomain: "website-d2d76.firebaseapp.com",
+      projectId: "website-d2d76",
+      storageBucket: "website-d2d76.firebasestorage.app",
+      messagingSenderId: "969185321669",
+      appId: "1:969185321669:web:851934c7bb66de3aee46ac",
+      measurementId: "G-N273L869LN"
+    };
+
+    // Initialize Firebase and Firestore
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app); // Firestore reference
+
+    // Form submission
+    document.getElementById("sponsorship-form").addEventListener("submit", async (event) => {
+      event.preventDefault(); // Prevent default form submission
+
+      // Capture form data
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData.entries());
+      const errorMessage = document.getElementById("error-message");
+
+      try {
+        // Save form data to the PAYMENT collection in Firestore
+        const docRef = await addDoc(collection(db, "PAYMENT"), data);
+        alert("Application submitted successfully!");
+        event.target.reset(); // Reset the form
+        errorMessage.style.display = "none"; // Hide error message
+      } catch (error) {
+        console.error("Error submitting application: ", error);
+        errorMessage.textContent = "There was an error submitting your application. Please try again.";
+        errorMessage.style.display = "block"; // Show error message
+      }
+    });
+  </script>
+
+</body>
+</html>
